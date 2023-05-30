@@ -1,0 +1,28 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    background: #333;
+    color: white;    
+}
+
+img {
+    width: 100%;
+}
+
+input, button {
+    font: inherit;
+}
+
+button {
+    border-radius: 25;
+    padding-inline: 20px;
+    cursor: pointer;
+}
+
+a {
+    color: white;
+}

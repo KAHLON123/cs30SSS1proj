@@ -1,5 +1,4 @@
-//sql dump
-
+-- sql dump
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -10,7 +9,8 @@ CREATE TABLE `contactus` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `message` text NOT NULL
+  `message` text NOT NULL,
+  `ifread` bit NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `contactus` (`id`, `name`, `email`, `message`) VALUES
@@ -19,5 +19,6 @@ INSERT INTO `contactus` (`id`, `name`, `email`, `message`) VALUES
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
   `testimonial` text NOT NULL,
-  `author` varchar(255) NOT NULL
+  `author` varchar(255) NOT NULL,
+  `stars` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
