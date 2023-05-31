@@ -15,5 +15,12 @@ $_SESSION['loggedin'] = false;
     <!-- <img src="company-logo.png"></img> -->
     <h1>INVESTMENT HOUSE & CO</h1>
     <?php include("nav.php") ?>
+<!-- <form action="home.php" method="POST">
+    <label>HELLO</label>
+
+</form> -->
+<?php
+echo "brahhh";
+?>
 </body>
 </html>
