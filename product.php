@@ -1,4 +1,4 @@
-<!-- redirect here only when logged in as admin -->
+<!-- redirrect here only when logged in as admin -->
 <?php 
 session_start();
 if (!$_SESSION['loggedin']) {
