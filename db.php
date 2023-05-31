@@ -24,4 +24,8 @@ function contactRequest($dbh, $name, $email, $message){
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$name, $email, $message]);
 }
+
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    contactRequest($dbh, $_POST['name'], $_POST['email'], $_POST['message']);
+    }
 ?>

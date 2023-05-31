@@ -1,6 +1,7 @@
 <?php 
 session_start();
 $_SESSION['loggedin'] = false;
+include("db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +13,15 @@ $_SESSION['loggedin'] = false;
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- <img src="company-logo.png"></img> -->
+    <img src="company-logo.png"></img>
     <h1>INVESTMENT HOUSE & CO</h1>
     <?php include("nav.php") ?>
-<!-- <form action="home.php" method="POST">
-    <label>HELLO</label>
-
-</form> -->
+<h2>TESTIMONIALS</h2>
 <?php
-
+$reviewsArr = loadTable($dbh, "reviews");
+for ($i=0;$i<count($reviewsArr);$i++) {
+    echo "<h2><em>" . $reviewsArr[$i]->testimonial . "</em></h2><h4>-" . $reviewsArr[$i]->author . "</h4><br />";
+}
 ?>
 </body>
 </html>
