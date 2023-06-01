@@ -1,8 +1,8 @@
 <!-- redirrect here only when logged in as admin -->
 <?php 
-session_start();
+include("db.php");
 if (!$_SESSION['loggedin']) {
-    header("home.php");
+    echo "ADMIN LOGIN FORM";
 }
 ?>
 <!DOCTYPE html>
@@ -12,11 +12,15 @@ if (!$_SESSION['loggedin']) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIEW PRODUCT</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <form action="product.php" method="POST">
-        <label><?php "PRODUCT NAME" ?></label>
+        <label><?php echo "PRODUCT NAME" ?></label>
     </form>
-    
+    <?php
+
+    include("nav.php"); 
+    ?>
 </body>
 </html>

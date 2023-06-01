@@ -1,7 +1,6 @@
 <?php 
-session_start();
-$_SESSION['loggedin'] = false;
 include("db.php");
+$_SESSION['loggedin'] = false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +12,15 @@ include("db.php");
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <img src="company-logo.png"></img>
+    <!-- <img src="company-logo.png"></img> -->
     <h1>INVESTMENT HOUSE & CO</h1>
-    <?php include("nav.php") ?>
-<h2>TESTIMONIALS</h2>
+<h2><u>TESTIMONIALS</u></h2>
 <?php
 $reviewsArr = loadTable($dbh, "reviews");
 for ($i=0;$i<count($reviewsArr);$i++) {
     echo "<h2><em>" . $reviewsArr[$i]->testimonial . "</em></h2><h4>-" . $reviewsArr[$i]->author . "</h4><br />";
 }
+include("nav.php");
 ?>
 </body>
 </html>
