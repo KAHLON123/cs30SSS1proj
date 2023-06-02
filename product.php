@@ -1,6 +1,8 @@
 <!-- redirrect here only when logged in as admin -->
-<?php 
+<?php
 include("db.php");
+include("nav.php");
+
 if (!$_SESSION['loggedin']) {
     echo "ADMIN LOGIN FORM";
 }
@@ -18,9 +20,6 @@ if (!$_SESSION['loggedin']) {
     <form action="product.php" method="POST">
         <label><?php echo "PRODUCT NAME" ?></label>
     </form>
-    <?php
-
-    include("nav.php"); 
-    ?>
+    
 </body>
 </html>

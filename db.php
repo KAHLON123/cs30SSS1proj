@@ -25,5 +25,14 @@ function contactRequest($dbh, $name, $email, $message){
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$name, $email, $message]);
 }
-
+function employeeChange($dbh, $firstname, $lastname, $position, $id){
+    $sql = 'UPDATE employees SET first_name=?, last_name=?, position=? WHERE id=?';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute([$firstname, $lastname, $position, $id]);
+}
+function employeeRequest($firstname, $lastname, $position, $id){
+    $sql = 'INSERT INTO contactus (name, email, message) VALUES (?, ?, ?)';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute([$name, $email, $message]);
+}
 ?>
