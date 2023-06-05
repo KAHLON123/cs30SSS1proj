@@ -1,5 +1,6 @@
 <?php 
 include("db.php");
+include("nav.php");
 $_SESSION['loggedin'] = false;
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $reviewsArr = loadTable($dbh, "reviews");
 for ($i=0;$i<count($reviewsArr);$i++) {
     echo "<h2><em>" . $reviewsArr[$i]->testimonial . "</em></h2><h4>-" . $reviewsArr[$i]->author . "</h4><br />";
 }
-include("nav.php");
+
 ?>
 <h2><u>OUR PRODUCTS</u></h2>
 <?php
