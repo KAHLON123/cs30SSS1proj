@@ -22,5 +22,12 @@ for ($i=0;$i<count($reviewsArr);$i++) {
 }
 include("nav.php");
 ?>
+<h2><u>OUR PRODUCTS</u></h2>
+<?php
+$prodArr = loadTable($dbh, "products");
+for ($i=0;$i<count($prodArr);$i++) {
+    echo "<h2><em>" . $prodArr[$i]->type . "</em></h2><h4>-" . $prodArr[$i]->value . "</h4><br />";
+}
+?>
 </body>
 </html>

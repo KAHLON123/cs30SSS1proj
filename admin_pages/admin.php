@@ -1,4 +1,6 @@
 <?php include("db.php");
+// include home and display testimonials, employees, and products as forms
+include("home.php");
 // if (!$_SESSION['loggedin']) {
 //     header("location: product.php");
 // }
@@ -10,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $id = $_POST["ID" . $i];
         employeeChange($dbh, $firstname, $lastname, $position, $id);
     }
+    // want to hire new employee?
+    $hireFirstName = $_POST["addfirstName"];
+    $hireLastName  = $_POST["addlastName"];
+    $hirePosition = $_POST["addosition"];
+    if (empty($hireFirstName, ))
 }
 ?>
 <!DOCTYPE html>
@@ -31,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     <section>
     <form action='admin.php' method='POST'>
         <?php
+        // EMPLOYEES
         echo "<h1>IH&C Employee Database</h1>";
         for ($i=0;$i<count($employeeArr);$i++) {
             //make employee information into a form
@@ -41,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         }
         echo "<input type='hidden' name='count' value='". count($employeeArr) ."'><input type='submit' name='submit' value='submit'>";
         ?>
-        <input name='firstName' type='text' value=''>
-            <input name='lastName' type='text' value=''> 
-            <input name='position' type='text' value=''> <br /> <br />
+            <input name='addfirstName' type='text' value=''>
+            <input name='addlastName' type='text' value=''> 
+            <input name='addposition' type='text' value=''> <br /> <br />
     </form>
     
     </section>

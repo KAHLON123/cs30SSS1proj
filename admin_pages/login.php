@@ -18,7 +18,7 @@ if (!$_SESSION['loggedin']) {
 </head>
 <body>
     <form action="product.php" method="POST">
-        <label><?php echo "PRODUCT NAME" ?></label>
+        <label></label>
     </form>
     
 </body>
