@@ -65,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             <input name='addposition' type='text' value=''> <br /> <br />
             <select name="s">
                 <option>OPTIONS</option>
-                <option name="1">Hire</option>
-                <option name="2">Update</option>
+                <option value="1">Hire</option>
+                <option value="2">Update</option>
             </select>
             <input type="submit" name="submit" value="submit">
     </form>
