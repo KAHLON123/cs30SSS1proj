@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 $id = $_POST["ID" . $i];
                 employeeChange($dbh, $firstname, $lastname, $position, $id);
             }
+            
             break;
         default:
             echo "<h3>Please choose an option</h3>";
