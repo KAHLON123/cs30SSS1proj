@@ -26,7 +26,6 @@ function contactRequest($dbh, $name, $email, $message){
     $stmt->execute([$name, $email, $message]);
 }
 function employeeChange($dbh, $firstname, $lastname, $position, $id){
-    echo "<h1>CALL EMPLOYEE CHANGE</h1>";
     $sql = 'UPDATE employees SET first_name=?, last_name=?, position=? WHERE id=?';
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$firstname, $lastname, $position, $id]);

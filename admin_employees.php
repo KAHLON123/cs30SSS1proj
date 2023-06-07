@@ -8,7 +8,6 @@ include("admin_nav.php");
 $employeeArr = loadTable($dbh, "employees");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    echo "SERVER REQUEST METHOD";
     switch ($_POST["s"]) {
         case "1":
             if (empty($hireFirstName) || empty($hireLastName) || empty($hirePosition)) {
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             }
             break;
         case "2":
-            echo "CASE 2";
             for ($i=0;$i<$_POST['count'];$i++) {
                 $firstname = $_POST["firstName" . $i];
                 $lastname = $_POST["lastName" . $i];
@@ -30,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 $id = $_POST["ID" . $i];
                 employeeChange($dbh, $firstname, $lastname, $position, $id);
             }
-            
             break;
         default:
             echo "<h3>Please choose an option</h3>";
@@ -66,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             <input name='addposition' type='text' value=''> <br /> <br />
             <select name="s">
                 <option>OPTIONS</option>
-                <option name="1">Hire</option>
-                <option name="2">Update</option>
+                <option value="1">Hire</option>
+                <option value="2">Update</option>
             </select>
             <input type="submit" name="submit" value="submit">
     </form>

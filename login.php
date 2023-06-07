@@ -4,11 +4,15 @@ include("db.php");
 include("nav.php");
 
 if ($_SESSION['loggedin']) {
-    header("location: admin.php");
+    header("location: home.php");
 }
-if ($username == "user" && $password == "root") {
-    $_SESSION['loggedin'] = true;
-    header("location: admin.php");
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_POST['username'] == "user" && $_POST['password'] == "root") {
+        $_SESSION['loggedin'] = true;
+        header("location: home.php");
+    } else {
+        echo "<h2><br />ACCESS DENIED<h2>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -20,4 +24,11 @@ if ($username == "user" && $password == "root") {
     <title>ADMIN LOGIN</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+<body>
+    <form action="login.php" method="POST">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" name="submit" value="submit">
+    </form>
+</body>
 </html>
