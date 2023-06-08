@@ -30,9 +30,9 @@ function employeeChange($dbh, $firstname, $lastname, $position, $id){
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$firstname, $lastname, $position, $id]);
 }
-function hire($firstname, $lastname, $position, $id){
-    $sql = 'INSERT INTO contactus (name, email, message) VALUES (?, ?, ?)';
+function hire($dbh, $firstname, $lastname, $position){
+    $sql = 'INSERT INTO employees (first_name, last_name, position) VALUES (?, ?, ?)';
     $stmt = $dbh->prepare($sql);
-    $stmt->execute([$name, $email, $message]);
+    $stmt->execute([$firstname, $lastname, $position]);
 }
 ?>

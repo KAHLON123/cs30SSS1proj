@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 $hireFirstName = $_POST["addfirstName"];
                 $hireLastName  = $_POST["addlastName"];
                 $hirePosition = $_POST["addosition"];
-                hire($hireFirstName, $hireLastName, $hirePosition);
+                hire($dbh, $hireFirstName, $hireLastName, $hirePosition);
                 echo "Welcome to the team";
             }
             break;
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 <body>
     <section>
-    <form action='admin.php' method='POST'>
+    <form action='admin_employees.php' method='POST'>
         <?php
         // EMPLOYEES
         echo "<h1>IH&C Employee Database</h1>";
