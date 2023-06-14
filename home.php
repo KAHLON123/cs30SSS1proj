@@ -22,6 +22,7 @@ echo "<form method='POST' action='home.php'>
 <input type='submit' name='left' value='<-'></button>
 <input type='submit' name='right' value='->'></button>
 </form>";
+echo "what the";
 if (isset($_POST['left'])) {
     $slide = slideHandler("left", $strArr, $strNum);
     echo $strArr[$slide];
