@@ -1,5 +1,10 @@
-<?php include("db.php"); 
-include("nav.php"); ?>
+<?php include("db.php");
+if ($_SESSION['loggedin'] == true) {
+    include("admin_nav.php");
+} else {
+    include("nav.php"); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +21,12 @@ include("nav.php"); ?>
         <label>EMAIL:</label>
         <input type="text" name="email" required></input><br />
         <label>YOUR MESSAGE:</label>
-        <input type="text" name="name" required></input><br />
+        <input type="text" name="message" required></input><br />
+        <input type="submit" name="submit" value="submit">
     </form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    contactRequest($dbh, $_POST['$name'], $_POST['$email'], $_POST['$message']);
+    contactRequest($dbh, $_POST['name'], $_POST['email'], $_POST['message']);
     echo "Thank you for your message.";
     }
     ?>

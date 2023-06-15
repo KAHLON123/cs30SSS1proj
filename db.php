@@ -31,7 +31,7 @@ function employeeChange($dbh, $firstname, $lastname, $position, $id){
     $stmt->execute([$firstname, $lastname, $position, $id]);
 }
 function hire($dbh, $firstname, $lastname, $position){
-    $sql = 'INSERT INTO employees (first_name, last_name, position) VALUES (?, ?, ?)';
+    $sql = 'INSERT INTO employees (first_name, last_name, position, id) VALUES (?, ?, ?, NULL)';
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$firstname, $lastname, $position]);
 }

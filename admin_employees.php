@@ -1,26 +1,29 @@
 <?php 
-// include home and display testimonials, employees, and products as forms
+// include home and display employees as forms
 include("db.php");
 include("admin_nav.php");
-// if (!$_SESSION['loggedin']) {
-//     header("location: login.php");
-// }
+if (!$_SESSION['loggedin']) {
+    header("location: login.php");
+}
+
 $employeeArr = loadTable($dbh, "employees");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     switch ($_POST["s"]) {
         case "1":
+            echo "<h2>CASE 1</h2>";
+            $hireFirstName = $_POST["addfirstName"];
+            $hireLastName  = $_POST["addlastName"];
+            $hirePosition = $_POST["addposition"];
             if (empty($hireFirstName) || empty($hireLastName) || empty($hirePosition)) {
                 echo "None of these fields can be empty";
             } else {
-                $hireFirstName = $_POST["addfirstName"];
-                $hireLastName  = $_POST["addlastName"];
-                $hirePosition = $_POST["addosition"];
                 hire($dbh, $hireFirstName, $hireLastName, $hirePosition);
-                echo "Welcome to the team";
+                //hire($dbh, $hireFirstName, $hireLastName, $hirePosition);
+                echo "Successfully hired";
             }
             break;
-        case "2":
+        case "3":
             for ($i=0;$i<$_POST['count'];$i++) {
                 $firstname = $_POST["firstName" . $i];
                 $lastname = $_POST["lastName" . $i];
@@ -64,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             <select name="s">
                 <option>OPTIONS</option>
                 <option value="1">Hire</option>
-                <option value="2">Update</option>
+                <option value="3">Update</option>
             </select>
             <input type="submit" name="submit" value="submit">
     </form>

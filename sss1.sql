@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 07:22 PM
+-- Generation Time: Jun 15, 2023 at 06:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,9 @@ CREATE TABLE `contactus` (
 INSERT INTO `contactus` (`id`, `name`, `email`, `message`) VALUES
 (1, 'test1', 'test1@mail.com', 'Test 1 Message'),
 (9, 'name', 'email', 'message'),
-(10, '1', '2', '3');
+(10, '1', '2', '3'),
+(11, 'does', 'this', 'work'),
+(12, 'ayyyy', 'asyyyyy', 'aaaaaayyyyyy');
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,11 @@ CREATE TABLE `employees` (
 INSERT INTO `employees` (`first_name`, `last_name`, `position`, `id`) VALUES
 ('nikithA', 'mandarappalU', 'CFO', 2),
 ('Richard', 'Nixon', 'Advisor', 3),
-('yah', 'aaaaaaaaa', 'Advisor', 4);
+('2', '1', 'Advisor', 4),
+('4', '4', '4', 5),
+('vled', 'paper', 'bruh', 6),
+('vled', 'CEO and Founder Elon Musk', 'bruh', 7),
+('vled', 'CEO and Founder Elon Musk', 'bruh', 8);
 
 -- --------------------------------------------------------
 
@@ -107,7 +113,9 @@ CREATE TABLE `reviews` (
 
 INSERT INTO `reviews` (`id`, `testimonial`, `author`) VALUES
 (1, 'disgoustang service. Never gonna come back here again ew', 'brodda'),
-(2, 'got super rich and spent it all on charity', 'wethebestmusic');
+(2, 'got super rich and spent it all on charity', 'wethebestmusic'),
+(3, 'very interesting business... ', 'anon'),
+(4, 'I got scammed >:(', 'BoycottInvestmentHouse');
 
 --
 -- Indexes for dumped tables
@@ -145,13 +153,13 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -163,7 +171,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

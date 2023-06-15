@@ -1,37 +1,29 @@
 <?php 
 include("db.php");
 
-if ($_SESSION['loggedin'] == true) {
-    include("admin_nav.php");  
-} else {
-    include("nav.php");
-}
-
 $reviewsArr = loadTable($dbh, "reviews");
 $count = count($reviewsArr);
 $strArr = [];
-$strNum = 0;
 
 for ($i=0;$i<count($reviewsArr);$i++) {
     $str = "<h2><em>" . $reviewsArr[$i]->testimonial . "</em></h2><h4>-" . $reviewsArr[$i]->author . "</h4><br /></div>";
     array_push($strArr, $str);
 }
-echo "<h1>INVESTMENT HOUSE & CO</h1>";
-echo "<h2><u>TESTIMONIALS</u></h2>";
-echo "<form method='POST' action='home.php'>
-<input type='submit' name='left' value='<-'></button>
-<input type='submit' name='right' value='->'></button>
-</form>";
-echo "what the";
-if (isset($_POST['left'])) {
-    $slide = slideHandler("left", $strArr, $strNum);
-    echo $strArr[$slide];
-    echo $slide;
-} elseif (isset($_POST['right'])) {
-    $slide = slideHandler("right", $strArr, $strNum);
-    echo $strArr[$slide];
-    echo $slide;
+
+if (isset($_SESSION['slide'])) {
+    $slide = $_SESSION['slide'];
+} else {
+    $slide = 1;
 }
+
+if (isset($_POST['left'])) {
+    $slide = slideHandler("left", $strArr, $slide);
+    $_SESSION['slide'] = $slide;
+} elseif (isset($_POST['right'])) {
+    $slide = slideHandler("right", $strArr, $slide);
+    $_SESSION['slide'] = $slide;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,20 +35,39 @@ if (isset($_POST['left'])) {
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <img src="company-logo.png"></img>
+    <!-- <img src="company-logo.png" width="50"></img> -->
     
+<?php
+ // define loggedin
+if ($_SESSION['loggedin'] == true) {
+    include("admin_nav.php");  
+} else {
+    include("nav.php");
+}
+
+echo "<h1>INVESTMENT HOUSE & CO</h1>";
+echo "<h2><u>TESTIMONIALS</u></h2>";
+echo "<form method='POST' action='home.php'>
+<input type='submit' name='left' value='<-'></button>
+<input type='submit' name='right' value='->'></button>
+</form>";
+echo $strArr[$slide];
+?>
+
 <h2><u>OUR PRODUCTS</u></h2>
+
 <?php
 $prodArr = loadTable($dbh, "products");
 for ($i=0;$i<count($prodArr);$i++) {
     echo "<h2><em>" . $prodArr[$i]->type . "</em></h2><h4>$" . $prodArr[$i]->value . "</h4><br />";
 }
-function slideHandler($dir, $strArr, $currStr){
+function slideHandler($dir, $strArr, $slide){
     $strNum = 0;
-    if ($dir == "left" && $currStr > 0) {
-        $strNum = $currStr -= 1;
-    } elseif ($dir == "right") {
-        $strNum = $currStr +=1;
+    $count = count($strArr);
+    if ($dir == "left" && $slide > 0) {
+        $strNum = --$slide;
+    } else if ($dir == "right" && $slide < $count - 1) {
+        $strNum = ++$slide;
     }
     return $strNum;
 }

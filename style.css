@@ -9,10 +9,6 @@ body {
     color: white;    
 }
 
-img {
-    width: 100%;
-}
-
 input, button {
     font: inherit;
 }
